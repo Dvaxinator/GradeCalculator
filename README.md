@@ -8,8 +8,9 @@ the web automation and without it, the program won't function.
 Steps:
 
 1. Download the code and chromedriver onto your local machine.
-2. Ensure that the chromedriver is compatible with your version of Chrome. If it isn't, the program will throw an error, saying chromedriver is outdated.
-To fix this, navigate to https://chromedriver.chromium.org/downloads and download the version of chromedriver that matches Chrome's version.
+2. Ensure that chromedriver is compatible with your version of Chrome. This version of chromedriver works on Chrome v105. 
+If it isn't, the program will throw an error, saying chromedriver is outdated. To fix this, navigate to https://chromedriver.chromium.org/downloads 
+and download the version of chromedriver that matches Chrome's version.
 3. That's it! You should be able to run the program successfully, assuming you have valid credentials. 
 
 If you aren't enrolled or associated with the University of Windsor, you won't be able to see the tool's function as you will need vaild credentials to 
