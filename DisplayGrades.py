@@ -327,7 +327,7 @@ with requests.Session() as s:
         password.send_keys(pwd)
         driver.find_element_by_name('_eventId_proceed').click()
         driver.get('https://blackboard.uwindsor.ca/webapps/streamViewer/streamViewer?cmd=view&streamName=mygrades&&override_stream=mygrades&globalNavigation=false')
-        time.sleep(2)
+        time.sleep(3)
         displayCourseNames = driver.page_source
         soup = BeautifulSoup(displayCourseNames, 'html.parser')
         a = soup.find_all('ul')
