@@ -11,7 +11,8 @@ Steps:
 2. Ensure that chromedriver is compatible with your version of Chrome. This version of chromedriver works on Chrome v105. 
 If it isn't, the program will throw an error, saying chromedriver is outdated. To fix this, navigate to https://chromedriver.chromium.org/downloads 
 and download the version of chromedriver that matches Chrome's version.
-3. That's it! You should be able to run the program successfully, assuming you have valid credentials. 
+3. You may need to install several libraries like BeautifulSoup, requests, etc to properly run the tool. 
+4. That's it! You should be able to run the program successfully, assuming you have valid credentials. 
 
 If you aren't enrolled or associated with the University of Windsor, you won't be able to see the tool's function as you will need vaild credentials to 
 authenticate with Blackboard LMS. 
