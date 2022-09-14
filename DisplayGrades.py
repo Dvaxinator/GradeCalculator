@@ -89,7 +89,7 @@ with requests.Session() as s:
                 for j in range(len(indices)):
                     while testOutput[indices[8] + counter] != '\n':
                         if testOutput[indices[8] + counter] == '\n':
-                            break;
+                            break
                         counter += 1
                     counter = 0
 
@@ -177,6 +177,7 @@ with requests.Session() as s:
         if(len(finalGradeCalculation).__eq__(0)):
             print('No grades detected!')
             gradesOfCourse(driver)
+            
         # Var declaration for counting amount of times each element appears
         assignmentCounter = 0
         labCounter = 0
@@ -240,7 +241,7 @@ with requests.Session() as s:
             elif key in markNames[7]:
                 individualOtherWeight += otherWeight / otherCounter
 
-        for i in range(len(gradeCategories)):  # Concatenates numbers to elements with same name #doesn't work
+        for i in range(len(gradeCategories)):  # Concatenates numbers to elements with same name (may not work as expected)
             if gradeCategories[i] in markNames[0]:
                 gradeCategories[i] = gradeCategories[i] + ' ' + str(int(numOfAssignments))
                 numOfAssignments -= 1
@@ -303,6 +304,7 @@ with requests.Session() as s:
         print('\nYour total grade is ' + str(finalMarkOfGrade) + '%')
 
     def courseLister(user, pwd):
+        #Setting Selenium webdriver options
         loadingMessage = 'Loading Please Wait...'
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -314,6 +316,7 @@ with requests.Session() as s:
             sys.stdout.flush()
             time.sleep(0.1)
         print('\n')
+        #Course Navigation
         filterChoice = 'filterChoice__'
         driver.get("https://blackboard.uwindsor.ca/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1")
         time.sleep(2)
@@ -365,7 +368,7 @@ with requests.Session() as s:
         URL += (a[13]['href'])  # Gets the href element that leads to the student login page
         loginSite = s.get(URL)
         parsed = urlparse.urlparse(loginSite.url)
-        execution = (parse_qs(parsed.query))['execution']
+        execution = (parse_qs(parsed.query))['execution'] # Parses execution code at end of url to allow for successful link redirect 
         executionCode = ''.join(execution)
         response = s.post('https://login.net.uwindsor.ca/idp/profile/cas/login?execution=' + executionCode,
                           data=userData)
@@ -378,8 +381,8 @@ with requests.Session() as s:
             blackboardUserAuthentication()
         if successCode != -1:
             blackboardName = str(studentHomepage.find('title'))
-            endOfName = blackboardName.find(' ', 16, len(blackboardName))
-            name = blackboardName[16:endOfName]
+            endOfName = blackboardName.find(' ', 16, len(blackboardName)) 
+            name = blackboardName[16:endOfName] 
             print(f'\nWelcome {name}!')
             option = input('\nWhat would you like to do?\n\n1. Check Your Grades\n2. Exit\n\n')
             while not option.isdigit() or (int(option) != 1 and int(option) != 2):
